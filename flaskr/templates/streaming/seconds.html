@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}4 PATH: /tracks-sec/{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% for track in tracks %}
+    <article class="post">
+      <p class="body"> Title: {{ track['title'] }}</p>
+      <p class="body"> Duration: {{ track['length'] }} seconds</p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

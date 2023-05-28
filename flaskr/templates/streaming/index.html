@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Tracks{% endblock %}</h1>
+  {% if g.artist_name %}
+    <a class="action" href="{{ url_for('streaming.create') }}">New track</a>
+  {% endif %}
+    {% if g.artist_name %}
+    <a class="action" href="{{ url_for('streaming.create_genre') }}">New genre</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for track in tracks %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ track['title'] }}</h1>
+          <div class="about"> duration {{ track['length'] }} seconds</div>
+        </div>
+        {% if g.artist_name['artist_name'] == track['artist'] %}
+          <a class="action" href="{{ url_for('streaming.update', id=track['id']) }}">Edit</a>
+        {% endif %}
+      </header>
+      <p class="body"> Author: {{ track['artist'] }}</p>
+      <p class="body"> Genre: {{ track[4] }}</p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}5) PATH: /tracks-sec/statistics/{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <p class="body"> The average duration of all tracks: {{ result[0] }} seconds. </p>
+      <p class="body"> The total duration of all tracks: {{ result[1] }} seconds.</p>
+    </article>
+{% endblock %}

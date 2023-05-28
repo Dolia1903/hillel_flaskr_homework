@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}1) PATH: /names/{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <p class="body"> Result: {{ result[0] }} unique artists</p>
+    </article>
+{% endblock %}

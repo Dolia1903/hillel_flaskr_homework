@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}3) PATH: /tracks/&lt;genre&gt;{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <p class="body"> Result: {{ result[0] }} tracks of {{genre}} genre</p>
+    </article>
+{% endblock %}

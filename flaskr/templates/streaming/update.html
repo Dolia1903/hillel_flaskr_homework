@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ track['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Title</label>
+    <input name="title" id="title"
+      value="{{ request.form['title'] or track['title'] }}" required>
+   <label for="length">Length</label>
+    <input name="length" id="length"
+      value="{{ request.form['length'] or track['length'] }}" required>
+    <label for="genre_id">Genre</label>
+    <input name="genre_id" id="genre_id"
+      value="{{ request.form['genre_id'] or track['genre_id'] }}" required>
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+  <form action="{{ url_for('streaming.delete', id=track['id']) }}" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}
